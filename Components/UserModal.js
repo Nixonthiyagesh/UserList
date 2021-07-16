@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import axios from "../axios";
 import Icon from "@material-ui/core/Icon";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   //Styles for this Modal using materialUi makeStyles function
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function UserModal({ id, handleClose, open }) {
-  const classes = useStyles();
+  const classes = useStyles([]);
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   //useEfect for go to the specfic users id while clicking on card
@@ -47,32 +48,37 @@ export default function UserModal({ id, handleClose, open }) {
     };
     fetchId();
     setIsLoading(false);
-  }, [id]);
+  }, [id, user]);
 
-  const body = !isLoading ? (
-    <div className={classes.paper}>
-      <Icon onClick={handleClose} className={classes.close}>
-        close_icon
-      </Icon>
-      <h2 id="simple-modal-title">{user.first_name + " " + user.last_name}</h2>
-      <img className={classes.image} src={user.avatar} alt={user.first_name} />
-      <p id="simple-modal-description">{user?.email}</p>
+  const body = (
+    <div>
+      <div className={classes.paper}>
+        <Icon onClick={handleClose} className={classes.close}>
+          close_icon
+        </Icon>
+        <h2>{user?.first_name + " " + user?.last_name}</h2>
+        <img
+          className={classes.image}
+          src={user?.avatar}
+          alt={user?.first_name}
+        />
+        <p>{user?.email}</p>
+      </div>
     </div>
-  ) : (
-    <div>Loading...</div>
   );
 
   return (
     <div>
       {/* model component feom material ui */}
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
+      {!isLoading && user ? (
+        <Modal open={open} onClose={handleClose}>
+          {body}
+        </Modal>
+      ) : (
+        <div>
+          <CircularProgress />
+        </div>
+      )}
     </div>
   );
 }

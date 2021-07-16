@@ -63,7 +63,7 @@ const UserCard = ({ id, imgSrc, firstName }) => {
           {isStar ? "star_rounded" : "star_border_rounded_icon"}
         </Icon>
         <div className="card-image">
-          <img src={`${imgSrc}`} alt={firstName} /> {/*avatar of the user*/}
+          <img src={imgSrc} alt={firstName} /> {/*avatar of the user*/}
         </div>
         <div>
           {/*name of the user*/}
