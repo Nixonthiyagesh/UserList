@@ -28,10 +28,18 @@
   padding: 20px !important;
 }
 
-.pagination-container{
+.pagination-container {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
+}
+
+.loading{
+  align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100vh;
 }
 
 @media (max-width: 767px) {

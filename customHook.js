@@ -3,12 +3,12 @@ export const useDarkMode = () => {
   const [theme, setTheme] = useState("light");
 
   const setMode = (mode) => {
-    window.localStorage.setItem("theme", mode);
+    window.localStorage.setItem("theme", mode); //storing the theme data in local and insert into the state
     setTheme(mode);
   };
 
   const themeToggler = () => {
-    theme === "light" ? setMode("dark") : setMode("light");
+    theme === "light" ? setMode("dark") : setMode("light"); //Theme toggler function for changing the theme
   };
 
   useEffect(() => {

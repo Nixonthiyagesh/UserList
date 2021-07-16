@@ -1,27 +1,28 @@
-.card{
-    background-color: var(--card-bg-color);
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
+.card {
+  background-color: var(--card-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 .card-title {
-    font-size: 20px;
-    font-weight: 400;
+  font-size: 20px;
+  font-weight: 400;
 }
 .card-image img {
-    border-radius: 50%;
-    margin: 10px 0px;
-    min-height: 120px;
-    max-width: 120px;
-    object-fit: contain;
-    background: #fff;
+  border-radius: 50%;
+  margin: 10px 0px;
+  min-height: 120px;
+  max-width: 120px;
+  object-fit: contain;
+  background: #fff;
 }
-.star-icon{
-    color: #FFC074;
-    font-size: 35px!important;
-    align-self: flex-start;
-    padding: 10px;
+.star-icon {
+  color: #ffc074;
+  font-size: 35px !important;
+  align-self: flex-start;
+  padding: 10px;
 }
